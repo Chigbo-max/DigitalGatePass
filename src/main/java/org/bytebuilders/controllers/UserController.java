@@ -9,7 +9,6 @@ import org.bytebuilders.dtos.Responses.AuthResponse;
 import org.bytebuilders.dtos.Responses.OtpResponse;
 import org.bytebuilders.dtos.Responses.ValidateOtpResponse;
 import org.bytebuilders.services.auth.AuthService;
-import org.bytebuilders.services.role.RoleService;
 import org.bytebuilders.services.role.SecurityService;
 import org.bytebuilders.services.role.TenantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +46,10 @@ public class UserController {
     @PostMapping("/validateOtp")
     public ValidateOtpResponse validateOtp(@Valid @RequestBody ValidateOtpRequest validateOtpRequest){
         return securityService.validateOtp(validateOtpRequest);
+    }
+
+    @PostMapping("/approveExit")
+    public OtpResponse approveExit(@Valid @RequestBody OtpRequest otpRequest){
+        return tenantService.approveExit(otpRequest);
     }
 }

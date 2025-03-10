@@ -27,20 +27,28 @@ public class TenantService implements RoleService {
     }
 
     public OtpResponse generateOtp(OtpRequest otpRequest){
-        String otp = otpGenerator.generateOtp();
+        return getOtpResponse(otpRequest);
+    }
+
+    public OtpResponse approveExit(OtpRequest otpRequest){
+        return getOtpResponse(otpRequest);
+    }
+
+    private OtpResponse getOtpResponse(OtpRequest otpRequest) {
+        String exitOtp = otpGenerator.generateOtp();
         LocalDateTime otpGeneratedTime = otpGenerator.createdTime();
         LocalDateTime otpExpiryTime = otpGenerator.expirationTime();
 
         String convertedOtpGeneratedTime = otpGeneratedTime.format(DateTimeFormatter.ofPattern("MMMM d, yyyy, hh:mm a"));
         String convertedOtpExpiryTime = otpExpiryTime.format(DateTimeFormatter.ofPattern("MMMM d, yyyy, hh:mm a"));
 
-        OtpLog otpLog = new OtpLog(otpRequest.getVisitorName(), otp, otpGeneratedTime, otpExpiryTime);
+        OtpLog otpLog = new OtpLog(otpRequest.getVisitorName(), exitOtp, otpGeneratedTime, otpExpiryTime);
         otpLogsRepository.save(otpLog);
 
         OtpResponse otpResponse = new OtpResponse();
         otpResponse.setMessage("OTP successfully generated");
         otpResponse.setVisitorName(otpRequest.getVisitorName());
-        otpResponse.setOtp(otp);
+        otpResponse.setOtp(exitOtp);
         otpResponse.setCreatedTime(convertedOtpGeneratedTime);
         otpResponse.setExpiryTime(convertedOtpExpiryTime);
         return otpResponse;
