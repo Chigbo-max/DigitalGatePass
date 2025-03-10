@@ -1,0 +1,48 @@
+### Signup Request
+POST http://localhost:8080/signup
+Content-Type: application/json
+
+{
+  "email": "",
+  "password": "",
+  "role": ""
+}
+
+###Login Request
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "email": "",
+  "password": ""
+}
+
+### Generate OTP
+POST http://localhost:8080/generateOtp
+Content-Type: application/json
+
+{
+  "visitorName": ""
+}
+
+### Validate OTP
+POST http://localhost:8080/security/validateOtp
+Content-Type: application/json
+
+{
+  "otp": ""
+}
+
+
+### close account
+POST http://localhost:8080/admin/closeAccount
+Content-Type: application/json
+
+{
+  "userId": ""
+}
+
+
+### Get All Tenants
+GET http://localhost:8080/admin/viewTenants
+Accept: application/json
