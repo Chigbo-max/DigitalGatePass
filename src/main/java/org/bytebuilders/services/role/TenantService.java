@@ -42,7 +42,7 @@ public class TenantService implements RoleService {
         String convertedOtpGeneratedTime = otpGeneratedTime.format(DateTimeFormatter.ofPattern("MMMM d, yyyy, hh:mm a"));
         String convertedOtpExpiryTime = otpExpiryTime.format(DateTimeFormatter.ofPattern("MMMM d, yyyy, hh:mm a"));
 
-        OtpLog otpLog = new OtpLog(otpRequest.getVisitorName(), exitOtp, otpGeneratedTime, otpExpiryTime);
+        OtpLog otpLog = new OtpLog( otpRequest.getVisitorName(), exitOtp, otpGeneratedTime, otpExpiryTime);
         otpLogsRepository.save(otpLog);
 
         OtpResponse otpResponse = new OtpResponse();

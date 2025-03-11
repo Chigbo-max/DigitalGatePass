@@ -26,8 +26,8 @@ public class OtpLog {
     @NonNull
     LocalDateTime createdTime;
 
-    @Indexed(expireAfter = "0s")
     @NonNull
+    @Indexed(expireAfter = "0s")
     LocalDateTime expirationTime;
 
 }

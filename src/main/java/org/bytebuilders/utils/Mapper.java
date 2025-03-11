@@ -4,7 +4,6 @@ package org.bytebuilders.utils;
 import org.bytebuilders.data.model.User;
 import org.bytebuilders.data.repositories.UsersRepository;
 import org.bytebuilders.dtos.Requests.LogInRequest;
-import org.bytebuilders.dtos.Requests.OtpRequest;
 import org.bytebuilders.dtos.Requests.SignUpRequest;
 import org.bytebuilders.enums.Role;
 import org.bytebuilders.exceptions.IllegalAuthException;
@@ -26,11 +25,11 @@ public class Mapper {
         User user = new User();
         user.setEmailAddress(request.getEmail());
         user.setPassword(request.getPassword());
-        user.setRole(mapRole(request.getRole()));
+        user.setRole(validateRole(request.getRole()));
         return user;
     }
 
-    private Role mapRole(String role){
+    private Role validateRole(String role){
         try{
             return Role.valueOf(role.toUpperCase());
         }
@@ -41,10 +40,7 @@ public class Mapper {
 
     public RoleService login(LogInRequest request){
         User user = usersRepository.findByEmailAddress(request.getEmail());
-        if(user == null){
-            throw new IllegalAuthException("Invalid credentials");
-        }
-        if(!user.getPassword().equals(request.getPassword())){
+        if(user == null || !user.getPassword().equals(request.getPassword())){
             throw new IllegalAuthException("Invalid credentials");
         }
 
