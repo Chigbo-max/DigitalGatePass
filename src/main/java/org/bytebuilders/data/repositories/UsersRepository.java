@@ -1,7 +1,7 @@
 package org.bytebuilders.data.repositories;
 
 import org.bytebuilders.data.model.User;
-import org.bytebuilders.enums.Role;
+import org.bytebuilders.data.model.Role;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

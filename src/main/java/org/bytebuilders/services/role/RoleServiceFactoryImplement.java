@@ -1,7 +1,7 @@
 package org.bytebuilders.services.role;
 
 import org.bytebuilders.data.model.User;
-import org.bytebuilders.enums.Role;
+import org.bytebuilders.data.model.Role;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;

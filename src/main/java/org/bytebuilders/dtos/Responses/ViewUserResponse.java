@@ -1,8 +1,8 @@
 package org.bytebuilders.dtos.Responses;
 
 import lombok.*;
-import org.bytebuilders.enums.AccountStatus;
-import org.bytebuilders.enums.Role;
+import org.bytebuilders.data.model.AccountStatus;
+import org.bytebuilders.data.model.Role;
 
 @Getter
 @Setter

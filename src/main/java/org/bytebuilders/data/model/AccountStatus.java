@@ -1,4 +1,4 @@
-package org.bytebuilders.enums;
+package org.bytebuilders.data.model;
 
 public enum AccountStatus {
     ACTIVE,

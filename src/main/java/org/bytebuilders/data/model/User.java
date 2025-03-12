@@ -2,8 +2,6 @@ package org.bytebuilders.data.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.bytebuilders.enums.AccountStatus;
-import org.bytebuilders.enums.Role;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

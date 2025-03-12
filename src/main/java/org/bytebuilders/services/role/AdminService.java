@@ -8,8 +8,8 @@ import org.bytebuilders.dtos.Requests.*;
 import org.bytebuilders.dtos.Responses.CloseAccountResponse;
 import org.bytebuilders.dtos.Responses.ViewUserResponse;
 import org.bytebuilders.dtos.Responses.ViewVisitorLogResponse;
-import org.bytebuilders.enums.AccountStatus;
-import org.bytebuilders.enums.Role;
+import org.bytebuilders.data.model.AccountStatus;
+import org.bytebuilders.data.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

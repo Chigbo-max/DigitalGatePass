@@ -5,8 +5,8 @@ import org.bytebuilders.data.model.OtpLog;
 import org.bytebuilders.data.repositories.OtpLogsRepository;
 import org.bytebuilders.dtos.Requests.ValidateOtpRequest;
 import org.bytebuilders.dtos.Responses.ValidateOtpResponse;
-import org.bytebuilders.enums.OtpValidationStatus;
-import org.bytebuilders.enums.Role;
+import org.bytebuilders.data.model.OtpValidationStatus;
+import org.bytebuilders.data.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

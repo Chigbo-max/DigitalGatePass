@@ -23,7 +23,8 @@ public class UserController {
     @Autowired
     private TenantService tenantService;
 
-
+    //Api documentation
+    //https://documenter.getpostman.com/view/42348839/2sAYk8vioq
 
     @PostMapping("/signup")
     public AuthResponse signUp(@Valid @RequestBody SignUpRequest signUpRequest) {

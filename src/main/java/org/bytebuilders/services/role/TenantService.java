@@ -8,7 +8,7 @@ import org.bytebuilders.data.repositories.UsersRepository;
 import org.bytebuilders.data.repositories.VisitorLogRepository;
 import org.bytebuilders.dtos.Requests.OtpRequest;
 import org.bytebuilders.dtos.Responses.OtpResponse;
-import org.bytebuilders.enums.Role;
+import org.bytebuilders.data.model.Role;
 import org.bytebuilders.exceptions.IllegalAuthException;
 import org.bytebuilders.utils.OtpGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +16,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TenantService implements RoleService {

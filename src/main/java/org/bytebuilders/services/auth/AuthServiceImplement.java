@@ -5,7 +5,7 @@ import org.bytebuilders.data.repositories.UsersRepository;
 import org.bytebuilders.dtos.Requests.LogInRequest;
 import org.bytebuilders.dtos.Requests.SignUpRequest;
 import org.bytebuilders.dtos.Responses.AuthResponse;
-import org.bytebuilders.enums.Role;
+import org.bytebuilders.data.model.Role;
 import org.bytebuilders.exceptions.IllegalAuthException;
 import org.bytebuilders.services.role.RoleService;
 import org.bytebuilders.utils.Mapper;
