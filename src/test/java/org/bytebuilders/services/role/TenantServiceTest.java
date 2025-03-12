@@ -7,14 +7,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.bytebuilders.data.model.Role.TENANT;
+import static org.bytebuilders.data.model.Role.resident;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class TenantServiceTest {
+class residentServiceTest {
 
     @Autowired
-    private TenantService tenantService;
+    private ResidentService residentService;
 
     private OtpRequest otpRequest;
 
@@ -33,15 +33,15 @@ class TenantServiceTest {
 //    }
 
     @Test
-    void testThatGetRoleReturnsRole_getTenant() {
-        assertEquals(TENANT, tenantService.getRole());
+    void testThatGetRoleReturnsRole_getResident() {
+        assertEquals(resident, residentService.getRole());
     }
 
     @Test
-    void testThatTenantCanGenerateOtpRequest_getOne() {
+    void testThatResidentCanGenerateOtpRequest_getOne() {
         otpRequest.setVisitorName("Visitor");
-        otpRequest.setTenantEmail("mike@gmail.com");
-        tenantService.generateOtp(otpRequest);
+        otpRequest.setResidentEmail("mike@gmail.com");
+        residentService.generateOtp(otpRequest);
         assertEquals(1, otpLogsRepository.count());
     }
 
@@ -51,9 +51,9 @@ class TenantServiceTest {
     }
 
     @Test
-    void testThatTenantCanGenerateOtpForVisitorExitApproval() {
+    void testThatResidentCanGenerateOtpForVisitorExitApproval() {
         otpRequest.setVisitorName("Visitor");
-        tenantService.approveExit(otpRequest);
+        residentService.approveExit(otpRequest);
         assertEquals(1, otpLogsRepository.count());
     }
 

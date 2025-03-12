@@ -18,7 +18,7 @@ class SecurityServiceTest {
     @Autowired
     private SecurityService securityService;
     @Autowired
-    private TenantService tenantService;
+    private ResidentService tenantService;
 
     private ValidateOtpRequest validateOtpRequest;
 

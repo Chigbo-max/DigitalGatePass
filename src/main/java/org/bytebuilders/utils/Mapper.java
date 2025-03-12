@@ -27,7 +27,7 @@ public class Mapper {
         user.setPassword(request.getPassword());
         user.setRole(validateRole(request.getRole()));
 
-        if(user.getRole().equals(Role.TENANT)){
+        if(user.getRole().equals(Role.RESIDENT)){
             user.setHomeAddress(request.getHomeAddress());
         }
         return user;

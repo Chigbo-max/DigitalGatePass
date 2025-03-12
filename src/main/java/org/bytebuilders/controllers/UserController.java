@@ -1,19 +1,18 @@
 package org.bytebuilders.controllers;
 
 import jakarta.validation.Valid;
-import org.bytebuilders.data.model.User;
 import org.bytebuilders.dtos.Requests.*;
 import org.bytebuilders.dtos.Responses.*;
 import org.bytebuilders.services.auth.AuthService;
-import org.bytebuilders.services.role.AdminService;
-import org.bytebuilders.services.role.TenantService;
+import org.bytebuilders.services.role.ResidentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
+@CrossOrigin(origins = "http://localhost:5174")
 @RestController
 public class UserController {
 
@@ -21,7 +20,7 @@ public class UserController {
     private AuthService authService;
 
     @Autowired
-    private TenantService tenantService;
+    private ResidentService residentService;
 
     //Api documentation
     //https://documenter.getpostman.com/view/42348839/2sAYk8vioq
@@ -38,15 +37,14 @@ public class UserController {
 
     @PostMapping("/generateOtp")
     public OtpResponse generateOtp(@Valid @RequestBody OtpRequest otpRequest){
-        return tenantService.generateOtp(otpRequest);
+        return residentService.generateOtp(otpRequest);
     }
 
 
     @PostMapping("/approveExit")
     public OtpResponse approveExit(@Valid @RequestBody OtpRequest otpRequest){
-        return tenantService.approveExit(otpRequest);
+        return residentService.approveExit(otpRequest);
     }
-
 
 
 

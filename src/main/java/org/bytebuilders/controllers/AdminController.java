@@ -25,14 +25,14 @@ public class AdminController {
         return adminService.closeAccount(closeAccountRequest);
     }
 
-    @GetMapping("/viewTenants")
-    public List<ViewUserResponse> viewTenants(){
-        return adminService.viewTenant();
+    @GetMapping("/viewResidents")
+    public List<ViewUserResponse> viewResidents(){
+        return adminService.viewResident();
     }
 
-    @PostMapping("/viewTenantById")
-    public List<ViewUserResponse> viewTenantById(@Valid @RequestBody ViewTenantByIdRequest request){
-        return adminService.viewTenantById(request);
+    @PostMapping("/viewResidentById")
+    public List<ViewUserResponse> viewResidentById(@Valid @RequestBody ViewResidentByIdRequest request){
+        return adminService.viewResidentById(request);
     }
 
     @GetMapping("/getAllSecurityPersonnel")

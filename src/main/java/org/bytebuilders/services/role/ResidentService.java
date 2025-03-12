@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Service
-public class TenantService implements RoleService {
+public class ResidentService implements RoleService {
 
     @Autowired
     private OtpGenerator otpGenerator;
@@ -34,7 +34,7 @@ public class TenantService implements RoleService {
 
     @Override
     public Role getRole() {
-        return Role.TENANT;
+        return Role.RESIDENT;
     }
 
     public OtpResponse generateOtp(OtpRequest otpRequest) {
@@ -53,8 +53,7 @@ public class TenantService implements RoleService {
         String convertedOtpGeneratedTime = otpGeneratedTime.format(DateTimeFormatter.ofPattern("MMMM d, yyyy, hh:mm a"));
         String convertedOtpExpiryTime = otpExpiryTime.format(DateTimeFormatter.ofPattern("MMMM d, yyyy, hh:mm a"));
 
-        String address = getTenantAddress(otpRequest.getTenantEmail());
-        System.out.println(address);
+        String address = getResidentAddress(otpRequest.getResidentEmail());
 
         OtpLog otpLog = new OtpLog( otpRequest.getVisitorName(), otp, address,otpGeneratedTime, otpExpiryTime);
         otpLogsRepository.save(otpLog);
@@ -74,10 +73,10 @@ public class TenantService implements RoleService {
         return otpResponse;
     }
 
-    private String getTenantAddress(String tenantEmail) {
-        User tenant = usersRepository.findByEmailAddress(tenantEmail);
-        if(tenant != null && tenant.getRole() == Role.TENANT) {
-            return tenant.getHomeAddress();
+    private String getResidentAddress(String residentEmail) {
+        User resident = usersRepository.findByEmailAddress(residentEmail);
+        if(resident != null && resident.getRole() == Role.RESIDENT) {
+            return resident.getHomeAddress();
         }
         throw new IllegalAuthException("Home address not found");
     }

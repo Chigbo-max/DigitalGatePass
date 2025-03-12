@@ -91,3 +91,13 @@ Content-Type: application/json
 {
   "otpId": ""
 }
+
+
+
+
+
+
+
+
+
+###  return roleServices.getOrDefault(user.getRole(), ()-> {throw new IllegalArgumentException("Role does not exist");});

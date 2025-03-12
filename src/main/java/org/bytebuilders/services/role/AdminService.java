@@ -31,14 +31,14 @@ public class AdminService implements RoleService {
         return Role.ADMIN;
     }
 
-    public List<ViewUserResponse> viewTenant(){
-       List <User> tenants = usersRepository.findByRole(Role.TENANT);
-       return tenants.stream().map(tenant -> new ViewUserResponse(tenant.getId(), tenant.getEmailAddress(), tenant.getAccountStatus(), tenant.getRole())).toList();
+    public List<ViewUserResponse> viewResident(){
+       List <User> residents = usersRepository.findByRole(Role.RESIDENT);
+       return residents.stream().map(resident -> new ViewUserResponse(resident.getId(), resident.getEmailAddress(), resident.getAccountStatus(), resident.getRole())).toList();
     }
 
-    public List<ViewUserResponse> viewTenantById(ViewTenantByIdRequest request){
-        List<User> tenants = usersRepository.findById(request.getTenantId()).stream().toList();
-        return tenants.stream().map(tenant -> new ViewUserResponse(tenant.getId(), tenant.getEmailAddress(), tenant.getAccountStatus(), tenant.getRole())).toList();
+    public List<ViewUserResponse> viewResidentById(ViewResidentByIdRequest request){
+        List<User> residents = usersRepository.findById(request.getResidentId()).stream().toList();
+        return residents.stream().map(resident -> new ViewUserResponse(resident.getId(), resident.getEmailAddress(), resident.getAccountStatus(), resident.getRole())).toList();
     }
 
 

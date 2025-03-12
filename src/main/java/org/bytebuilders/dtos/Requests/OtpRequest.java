@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class OtpRequest {
     String visitorName;
-    String tenantEmail;
+    String residentEmail;
 }

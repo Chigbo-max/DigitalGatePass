@@ -43,7 +43,7 @@ class AuthServiceImplementTest {
     void testThatUserCanSignUp_getOne() {
         signUpRequest.setEmail("test@email.com");
         signUpRequest.setPassword("password");
-        signUpRequest.setRole("TENANT");
+        signUpRequest.setRole("RESIDENT");
         signUpRequest.setHomeAddress("BLOCK A");
         authService.signUp(signUpRequest);
         assertEquals(1, usersRepository.count());
@@ -53,7 +53,7 @@ class AuthServiceImplementTest {
     void testThatExceptionIsThrownIfHomeAddressIsBlank() {
         signUpRequest.setEmail("test@email.com");
         signUpRequest.setPassword("password");
-        signUpRequest.setRole("TENANT");
+        signUpRequest.setRole("RESIDENT");
         IllegalAuthException exception = assertThrows(IllegalAuthException.class, () -> authService.signUp(signUpRequest));
         assertEquals("Home address is required", exception.getMessage());
 

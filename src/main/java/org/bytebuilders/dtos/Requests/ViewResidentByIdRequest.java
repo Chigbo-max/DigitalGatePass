@@ -6,6 +6,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ViewTenantByIdRequest {
-    private String tenantId;
+public class ViewResidentByIdRequest {
+    private String residentId;
 }
