@@ -1,6 +1,5 @@
 package org.bytebuilders.data.model;
 
-
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -10,10 +9,10 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @RequiredArgsConstructor
-@Document(collection="Otp_Log")
-public class OtpLog {
+@NoArgsConstructor
+@Document(collection="VistorLog")
+public class VisitorLog {
     @Id
     String id;
 
@@ -30,7 +29,5 @@ public class OtpLog {
     LocalDateTime createdTime;
 
     @NonNull
-    @Indexed(expireAfter = "0s")
     LocalDateTime expirationTime;
-
 }

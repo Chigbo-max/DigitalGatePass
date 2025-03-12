@@ -15,6 +15,7 @@ public class User {
     private String id;
     private String emailAddress;
     private String password;
+    private String homeAddress;
     private Role role;
     private AccountStatus accountStatus = AccountStatus.ACTIVE;
 }

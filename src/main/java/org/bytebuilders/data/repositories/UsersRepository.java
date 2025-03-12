@@ -5,6 +5,7 @@ import org.bytebuilders.enums.Role;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UsersRepository extends MongoRepository<User, String> {
     User findByEmailAddress(String email);
@@ -12,4 +13,5 @@ public interface UsersRepository extends MongoRepository<User, String> {
     boolean existsByEmailAddress(String emailAddress);
 
     List<User> findByRole(Role role);
+    Optional<User> findById(String id);
 }

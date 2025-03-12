@@ -1,16 +1,19 @@
 package org.bytebuilders.dtos.Responses;
 
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
-public class OtpResponse {
-    private String message;
+@AllArgsConstructor
+public class ViewVisitorLogResponse {
     private String otpId;
     private String visitorName;
     private String otp;
-    private String address;
     private String createdTime;
     private String expiryTime;
 }

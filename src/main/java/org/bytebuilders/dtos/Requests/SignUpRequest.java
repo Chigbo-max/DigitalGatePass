@@ -16,6 +16,8 @@ public class SignUpRequest {
     @NotBlank(message = "Password is required")
     private String password;
 
+    private String homeAddress;
+
     @NotBlank(message = "Role is required, (ADMIN, SECURITY, TENANT)")
     private String role;
 }

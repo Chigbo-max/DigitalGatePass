@@ -1,6 +1,7 @@
 package org.bytebuilders.controllers;
 
 import jakarta.validation.Valid;
+import org.bytebuilders.data.model.User;
 import org.bytebuilders.dtos.Requests.*;
 import org.bytebuilders.dtos.Responses.*;
 import org.bytebuilders.services.auth.AuthService;

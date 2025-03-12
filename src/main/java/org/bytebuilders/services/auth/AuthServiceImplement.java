@@ -6,6 +6,7 @@ import org.bytebuilders.dtos.Requests.LogInRequest;
 import org.bytebuilders.dtos.Requests.SignUpRequest;
 import org.bytebuilders.dtos.Responses.AuthResponse;
 import org.bytebuilders.enums.Role;
+import org.bytebuilders.exceptions.IllegalAuthException;
 import org.bytebuilders.services.role.RoleService;
 import org.bytebuilders.utils.Mapper;
 import org.bytebuilders.utils.Validations;
@@ -29,6 +30,11 @@ public class AuthServiceImplement implements AuthService {
     public AuthResponse signUp(SignUpRequest signUpRequest) {
         validations.validateEmailAddress(signUpRequest.getEmail());
         User user = mapper.signUp(signUpRequest);
+
+        if(user.getRole() == Role.TENANT && (user.getHomeAddress() == null || user.getHomeAddress().isBlank())){
+            throw new IllegalAuthException("Home address is required");
+        }
+
         usersRepository.save(user);
         AuthResponse authResponse = new AuthResponse();
         authResponse.setMessage("Sign up successful");

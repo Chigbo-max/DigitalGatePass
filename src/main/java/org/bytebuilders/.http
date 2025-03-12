@@ -5,6 +5,7 @@ Content-Type: application/json
 {
   "email": "",
   "password": "",
+  "homeAddress": "",
   "role": ""
 }
 
@@ -22,7 +23,8 @@ POST http://localhost:8080/generateOtp
 Content-Type: application/json
 
 {
-  "visitorName": ""
+  "visitorName": "",
+  "tenantEmail": ""
 }
 
 ### Validate OTP
@@ -46,3 +48,46 @@ Content-Type: application/json
 ### Get All Tenants
 GET http://localhost:8080/admin/viewTenants
 Accept: application/json
+
+###View tenant by id
+POST http://localhost:8080/admin/viewTenantById
+Content-Type: application/json
+
+{
+  "tenantId": ""
+}
+
+### get all security personnel
+GET http://localhost:8080/admin/getAllSecurityPersonnel
+
+
+### get security by id
+POST http://localhost:8080/admin/getSecurityPersonnelById
+Content-Type: application/json
+
+{
+  "id": ""
+}
+
+### get all admins
+GET http://localhost:8080/admin/getAllAdmins
+
+### get admins by id
+GET http://localhost:8080/admin/getAdminById
+Content-Type: application/json
+
+{
+  "id": ""
+}
+
+
+### view all visitors
+GET http://localhost:8080/admin/viewAllVisitors
+
+### view visitors by otplog id
+POST http://localhost:8080/admin/viewVisitorByOtpId
+Content-Type: application/json
+
+{
+  "otpId": ""
+}

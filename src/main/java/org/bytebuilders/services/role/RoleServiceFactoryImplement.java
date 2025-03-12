@@ -18,9 +18,8 @@ public class RoleServiceFactoryImplement implements RoleServiceFactory {
     //simply registering the roles
     public RoleServiceFactoryImplement(List<RoleService> services) {
         services.forEach(service -> roleServices.put(service.getRole(), service));
-
-
     }
+
     @Override
     public RoleService getService(User user) {
         //check if user role exists in the registry

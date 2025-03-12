@@ -5,7 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OtpRequest {
-    String visitorName;
-    String tenantEmail;
+public class ViewVisitorLogRequest {
+    String otpId;
 }
