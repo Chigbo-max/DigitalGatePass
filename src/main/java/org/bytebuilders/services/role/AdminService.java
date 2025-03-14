@@ -36,9 +36,9 @@ public class AdminService implements RoleService {
        return residents.stream().map(resident -> new ViewUserResponse(resident.getId(), resident.getEmailAddress(), resident.getAccountStatus(), resident.getRole())).toList();
     }
 
-    public List<ViewUserResponse> viewResidentById(ViewResidentByIdRequest request){
-        List<User> residents = usersRepository.findById(request.getResidentId()).stream().toList();
-        return residents.stream().map(resident -> new ViewUserResponse(resident.getId(), resident.getEmailAddress(), resident.getAccountStatus(), resident.getRole())).toList();
+    public ViewUserResponse viewResidentById(ViewResidentByIdRequest request){
+        User resident = usersRepository.findById(request.getResidentId()).orElseThrow(()-> new IllegalArgumentException("Resident not found"));
+        return new ViewUserResponse(resident.getId(), resident.getEmailAddress(), resident.getAccountStatus(), resident.getRole());
     }
 
 
@@ -47,9 +47,9 @@ public class AdminService implements RoleService {
         return securityPersonnel.stream().map(personnel -> new ViewUserResponse(personnel.getId(), personnel.getEmailAddress(), personnel.getAccountStatus(), personnel.getRole())).toList();
     }
 
-    public List<ViewUserResponse> viewSecurityPersonnelById(ViewSecurityByIdRequest request){
-        List<User> securityPersonnel = usersRepository.findById(request.getId()).stream().toList();
-        return securityPersonnel.stream().map(personnel -> new ViewUserResponse(personnel .getId(), personnel .getEmailAddress(), personnel .getAccountStatus(), personnel .getRole())).toList();
+    public ViewUserResponse viewSecurityPersonnelById(ViewSecurityByIdRequest request){
+        User personnel = usersRepository.findById(request.getId()).orElseThrow(()-> new IllegalArgumentException("Security Personnel not found"));
+        return new ViewUserResponse(personnel .getId(), personnel .getEmailAddress(), personnel .getAccountStatus(), personnel .getRole());
     }
 
 
@@ -58,9 +58,9 @@ public class AdminService implements RoleService {
         return admins.stream().map(admin -> new ViewUserResponse(admin.getId(), admin.getEmailAddress(), admin.getAccountStatus(), admin.getRole())).toList();
     }
 
-    public List<ViewUserResponse> viewAdminById(ViewAdminByIdRequest request){
-        List<User> admins = usersRepository.findById(request.getId()).stream().toList();
-        return admins.stream().map(admin -> new ViewUserResponse(admin .getId(), admin .getEmailAddress(), admin.getAccountStatus(), admin.getRole())).toList();
+    public ViewUserResponse viewAdminById(ViewAdminByIdRequest request){
+        User admin = usersRepository.findById(request.getId()).orElseThrow(()-> new IllegalArgumentException("Admin not found"));
+        return new ViewUserResponse(admin .getId(), admin .getEmailAddress(), admin.getAccountStatus(), admin.getRole());
     }
 
 
@@ -71,9 +71,9 @@ public class AdminService implements RoleService {
     }
 
 
-    public List<ViewVisitorLogResponse> viewVisitorLogById(ViewVisitorLogRequest request){
-        List<VisitorLog> visitors = visitorLogs.findById(request.getOtpId()).stream().toList();
-        return visitors.stream().map(visitor -> new ViewVisitorLogResponse(visitor.getId(), visitor.getVisitorName(), visitor.getOtp(), convertDateFormatToString(visitor.getCreatedTime()),convertDateFormatToString(visitor.getExpirationTime()))).toList();
+    public ViewVisitorLogResponse viewVisitorLogById(ViewVisitorLogRequest request){
+        VisitorLog visitor = visitorLogs.findById(request.getOtpId()).orElseThrow( ()-> new IllegalArgumentException("Visitor not found"));
+        return new ViewVisitorLogResponse(visitor.getId(), visitor.getVisitorName(), visitor.getOtp(), convertDateFormatToString(visitor.getCreatedTime()),convertDateFormatToString(visitor.getExpirationTime()));
     }
 
 

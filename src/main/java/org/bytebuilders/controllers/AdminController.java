@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
@@ -31,7 +32,7 @@ public class AdminController {
     }
 
     @PostMapping("/viewResidentById")
-    public List<ViewUserResponse> viewResidentById(@Valid @RequestBody ViewResidentByIdRequest request){
+    public ViewUserResponse viewResidentById(@Valid @RequestBody ViewResidentByIdRequest request){
         return adminService.viewResidentById(request);
     }
 
@@ -41,7 +42,7 @@ public class AdminController {
     }
 
     @PostMapping("/getSecurityPersonnelById")
-    public List<ViewUserResponse> getSecurityPersonnelById(@Valid @RequestBody ViewSecurityByIdRequest request){
+    public ViewUserResponse getSecurityPersonnelById(@Valid @RequestBody ViewSecurityByIdRequest request){
         return adminService.viewSecurityPersonnelById(request);
     }
 
@@ -51,7 +52,7 @@ public class AdminController {
     }
 
     @GetMapping("/getAdminById")
-    public List<ViewUserResponse> getAdminById(@Valid @RequestBody ViewAdminByIdRequest request){
+    public ViewUserResponse getAdminById(@Valid @RequestBody ViewAdminByIdRequest request){
         return adminService.viewAdminById(request);
     }
 
@@ -62,7 +63,7 @@ public class AdminController {
     }
 
     @PostMapping("/viewVisitorByOtpId")
-    public List<ViewVisitorLogResponse> viewVisitorById(@Valid @RequestBody ViewVisitorLogRequest request){
+    public ViewVisitorLogResponse viewVisitorById(@Valid @RequestBody ViewVisitorLogRequest request){
         return adminService.viewVisitorLogById(request);
     }
 }

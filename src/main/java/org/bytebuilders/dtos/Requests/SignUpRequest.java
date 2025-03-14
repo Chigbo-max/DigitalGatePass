@@ -18,6 +18,6 @@ public class SignUpRequest {
 
     private String homeAddress;
 
-    @NotBlank(message = "Role is required, (ADMIN, SECURITY, TENANT)")
+    @NotBlank(message = "Role is required, (ADMIN, SECURITY, RESIDENT)")
     private String role;
 }

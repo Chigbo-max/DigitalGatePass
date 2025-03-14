@@ -24,7 +24,7 @@ public class OtpLog {
     String otp;
 
     @NonNull
-    String tenantAddress;
+    String residentAddress;
 
     @NonNull
     LocalDateTime createdTime;

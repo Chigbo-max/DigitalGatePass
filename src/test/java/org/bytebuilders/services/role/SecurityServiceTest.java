@@ -18,7 +18,7 @@ class SecurityServiceTest {
     @Autowired
     private SecurityService securityService;
     @Autowired
-    private ResidentService tenantService;
+    private ResidentService residentService;
 
     private ValidateOtpRequest validateOtpRequest;
 
@@ -35,7 +35,7 @@ class SecurityServiceTest {
     }
 
     @Test
-    void testThatGetRoleReturnsRole_getTenant() {
+    void testThatGetRoleReturnsRole_getSecurity() {
         assertEquals(SECURITY, securityService.getRole());
     }
 

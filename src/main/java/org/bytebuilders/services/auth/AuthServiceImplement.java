@@ -31,7 +31,7 @@ public class AuthServiceImplement implements AuthService {
         validations.validateEmailAddress(signUpRequest.getEmail());
         User user = mapper.signUp(signUpRequest);
 
-        if(user.getRole() == Role.TENANT && (user.getHomeAddress() == null || user.getHomeAddress().isBlank())){
+        if(user.getRole() == Role.RESIDENT && (user.getHomeAddress() == null || user.getHomeAddress().isBlank())){
             throw new IllegalAuthException("Home address is required");
         }
 

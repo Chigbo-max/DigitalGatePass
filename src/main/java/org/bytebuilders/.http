@@ -24,7 +24,7 @@ Content-Type: application/json
 
 {
   "visitorName": "",
-  "tenantEmail": ""
+  "residentEmail": ""
 }
 
 ### Validate OTP
@@ -45,16 +45,16 @@ Content-Type: application/json
 }
 
 
-### Get All Tenants
-GET http://localhost:8080/admin/viewTenants
+### Get All Residents
+GET http://localhost:8080/admin/viewResidents
 Accept: application/json
 
-###View tenant by id
-POST http://localhost:8080/admin/viewTenantById
+###View resident by id
+POST http://localhost:8080/admin/viewResidentById
 Content-Type: application/json
 
 {
-  "tenantId": ""
+  "residentId": ""
 }
 
 ### get all security personnel

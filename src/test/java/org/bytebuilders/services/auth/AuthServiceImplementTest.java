@@ -72,7 +72,7 @@ class AuthServiceImplementTest {
     void testThatExceptionIsThrownIfUserAlreadyExistsOnSignUp() {
         signUpRequest.setEmail("test@email.com");
         signUpRequest.setPassword("password");
-        signUpRequest.setRole("TENANT");
+        signUpRequest.setRole("RESIDENT");
         IllegalAuthException illegalAuthException = assertThrows(IllegalAuthException.class, () -> authService.signUp(signUpRequest));
         assertEquals(illegalAuthException.getMessage(), "User already exists");
     }
