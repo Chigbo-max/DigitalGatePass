@@ -1,6 +1,9 @@
 package org.bytebuilders.services.role;
 
 import org.bytebuilders.data.model.OtpLog;
+import org.bytebuilders.data.model.OtpLog;
+import org.bytebuilders.data.model.User;
+import org.bytebuilders.data.model.VisitorLog;
 import org.bytebuilders.data.model.User;
 import org.bytebuilders.data.model.VisitorLog;
 import org.bytebuilders.data.repositories.OtpLogsRepository;
@@ -55,11 +58,11 @@ public class ResidentService implements RoleService {
 
         String address = getResidentAddress(otpRequest.getResidentEmail());
 
-        OtpLog otpLog = new OtpLog( otpRequest.getVisitorName(), otp, address,otpGeneratedTime, otpExpiryTime);
+        OtpLog otpLog = new OtpLog(otpRequest.getVisitorName(), otp, otpRequest.getVisitorPhoneNumber(), address,otpGeneratedTime, otpExpiryTime);
         otpLogsRepository.save(otpLog);
 
 
-        VisitorLog visitorLog = new VisitorLog( otpRequest.getVisitorName(), otp,address ,otpGeneratedTime, otpExpiryTime);
+        VisitorLog visitorLog = new VisitorLog( otpRequest.getVisitorName(), otp, otpRequest.getVisitorPhoneNumber(), address ,otpGeneratedTime, otpExpiryTime);
         visitorLogsRepository.save(visitorLog);
 
         OtpResponse otpResponse = new OtpResponse();

@@ -9,4 +9,7 @@ import org.bytebuilders.data.model.OtpValidationStatus;
 public class ValidateOtpResponse {
     private String message;
     private OtpValidationStatus status;
+    private String visitorId;
+    private String residentAddress;
+
 }

@@ -1,6 +1,4 @@
 package org.bytebuilders.data.model;
-
-
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -15,22 +13,25 @@ import java.time.LocalDateTime;
 @Document(collection="Otp_Log")
 public class OtpLog {
     @Id
-    String id;
+    private String id;
 
     @NonNull
-    String visitorName;
+    private String visitorName;
 
     @NonNull
-    String otp;
+    private String otp;
 
     @NonNull
-    String residentAddress;
+    private String phoneNumber;
 
     @NonNull
-    LocalDateTime createdTime;
+    private String residentAddress;
+
+    @NonNull
+    private LocalDateTime createdTime;
 
     @NonNull
     @Indexed(expireAfter = "0s")
-    LocalDateTime expirationTime;
+    private LocalDateTime expirationTime;
 
 }

@@ -13,20 +13,27 @@ import java.time.LocalDateTime;
 @Document(collection="VistorLog")
 public class VisitorLog {
     @Id
-    String id;
+    private String id;
 
     @NonNull
-    String visitorName;
+    private String visitorName;
 
     @NonNull
-    String otp;
+    private String otp;
 
     @NonNull
-    String residentAddress;
+    private String phoneNumber;
 
     @NonNull
-    LocalDateTime createdTime;
+    private String residentAddress;
 
     @NonNull
-    LocalDateTime expirationTime;
+    private LocalDateTime createdTime;
+
+    @NonNull
+    private LocalDateTime expirationTime;
+
+    private String checkinTime;
+
+    private String checkoutTime;
 }

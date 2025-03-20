@@ -10,5 +10,7 @@ public interface VisitorLogRepository extends MongoRepository<VisitorLog, String
 
     Optional<VisitorLog> findById(String id);
 
+    Optional<VisitorLog> findByPhoneNumber(String phoneNumber);
+
     List <VisitorLog> findAll();
 }

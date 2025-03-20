@@ -44,6 +44,14 @@ Content-Type: application/json
   "userId": ""
 }
 
+### activate account
+POST http://localhost:8080/admin/activateAccount
+Content-Type: application/json
+
+{
+  "userId": ""
+}
+
 
 ### Get All Residents
 GET http://localhost:8080/admin/viewResidents
@@ -92,7 +100,24 @@ Content-Type: application/json
   "otpId": ""
 }
 
+### close account
+POST http://localhost:8080/api/admin/closeAccount
+Content-Type: application/json
 
+{
+  "userId": "67d234933a5e5049bfa84c17"
+}
+
+###view visitor pass by phone number
+POST http://localhost:8080/api/admin/getVisitorPassByPhoneNumber
+Content-Type: application/json
+
+{
+  "phoneNumber": "09012345678"
+}
+
+### view all visitors
+GET http://localhost:8080/api/admin/viewAllVisitorPass
 
 
 
